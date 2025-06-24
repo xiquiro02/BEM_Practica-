@@ -7,10 +7,11 @@
     --color-negro: #000;
     --color-blanco: #fff;
     --color-azul: blue;
-    --color-azul-claro: #5c8dff;
     --color-titulo-fondo: #ff7355;
     --color-fondo-navegacion: #f0f0f0;
     --color-fondo-nav: #3267ff;
+    --color-fondo-tarjeta: #fef6f5;
+    --color-borde-tarjeta: #d9d9d9;
 }
 body {
     font-family: 'Poppins', sans-serif;
@@ -60,43 +61,34 @@ body {
     background-color: var(--color-azul-claro);
     transform: translateY(-2px);
 }
-.main{
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: inline-block;
+.contenido__titulo{
     text-align: center;
 }
-.main__ejercicios{
-    background-color: #ebbfb5;
-    font-size: 18px;
-    border: solid 5px var(--color-negro);
-    width: 80%;
-    height: 700px;
-}
-.main__titulo{
-    padding: 20px ;
-}
-.main__tarjeta{
-    border-radius: 15px 15px 15px 15px;
-    margin: 0 auto;
-    background-color: var(--color-blanco);
-    width: 60%;
-    height: 70%;
-}
-.main__imagen{
-    border: solid 2px var(--color-azul);
+.tarjeta{
+    background-color: var(--color-fondo-tarjeta);
+    border: 2px solid var(--color-borde-tarjeta);
+    border-radius: 10px;
+    padding: 20px;
     width: 50%;
-    height: 50%;
-    margin-top: 15px;
+    margin: 0 auto;
+    text-align: center;
 }
-.main__volver{
-    margin-top: 50px;
-    font-size: 20px;
-    margin-top: 50px;
+.tarjeta__imagen {
+    width: 60%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
+.tarjeta__nombre {
+    font-size: 24px;
+    color: var(--color-negro);
+    margin-bottom: 10px;
+}
+.tarjeta__descripcion {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 .main__nav{
     background-color: var(--color-fondo-nav);
     padding: 70px;
@@ -107,6 +99,7 @@ body {
     text-decoration: none;
     margin-left: 30px;
 }
+
 .formulario{
     margin: 0 auto;
     padding: 20px;
