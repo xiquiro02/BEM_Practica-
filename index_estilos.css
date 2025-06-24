@@ -23,7 +23,6 @@
     --color-borde-lista: #ddd;
     --color-borde-galeria: #ccc;
     --color-sombra-imagen: rgba(0, 0, 0, 0.2);
-
     --color-alerta-info: #d9edf7;
     --color-alerta-exito: #d4edda;
     --color-alerta-advertencia: #fff3cd;
@@ -32,7 +31,13 @@
     --color-borde-exito: #155724;
     --color-borde-advertencia: #856404;
     --color-borde-error: #721c24;
-
+    --color-tabla-encabezado: #e3e3e3;
+    --color-tabla-fila-par: #f9f9f9;
+    --color-tabla-borde: #dcdcdc;
+    --color-texto-tabla: #333;
+    --color-fondo-pie: #1a1a1a;
+    --color-texto-pie: #e0e0e0;
+    --color-enlace-pie: #9bdcff;
 }
 body {
     font-family: 'Poppins', sans-serif;
@@ -289,4 +294,141 @@ body {
     color: var(--color-borde-error);
 }
 /* Ejercicio 07*/
+.tabla-datos {
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-size: 16px;
+}
+.tabla-datos__encabezado {
+    background-color: var(--color-tabla-encabezado);
+}
+.tabla-datos__fila:nth-child(even) {
+    background-color: var(--color-tabla-fila-par);
+}
+.tabla-datos__celda {
+    padding: 12px 15px;
+    border: 1px solid var(--color-tabla-borde);
+    color: var(--color-texto-tabla);
+    text-align: left;
+}
+.tabla-datos__celda--encabezado {
+    font-weight: bold;
+    color: var(--color-negro);
+}
 /* Ejercicio 08*/
+.pie-pagina {
+    background-color: var(--color-fondo-pie);
+    color: var(--color-texto-pie);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 3px solid var(--color-azul);
+}
+.pie-pagina__texto {
+    margin: 5px 0;
+    font-size: 14px;
+}
+.pie-pagina__redes {
+    margin-top: 10px;
+}
+.pie-pagina__enlace {
+    color: var(--color-enlace-pie);
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+.pie-pagina__enlace:hover {
+    text-decoration: underline;
+}
+/* Ejercicio 09*/
+.pestanas {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-family: sans-serif;
+    text-align: center;
+  }
+  /* Ocultamos los radios */
+  .pestanas__radio {
+    display: none;
+  }
+  /* Estilo de las etiquetas (botones de pestaña) */
+  .pestanas__etiqueta {
+    display: inline-block;
+    width: 33.3%;
+    padding: 10px 0;
+    background-color: #ccc;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  /* Hover */
+  .pestanas__etiqueta:hover {
+    background-color: #bbb;
+  }
+  /* Contenido oculto por defecto */
+  .pestanas__contenido {
+    display: none;
+    padding: 15px;
+    background-color: white;
+    font-size: 15px;
+    border-top: 1px solid #ddd;
+  }
+  /* Mostrar contenido según radio */
+  #pestana1:checked ~ #contenido1,
+  #pestana2:checked ~ #contenido2,
+  #pestana3:checked ~ #contenido3 {
+    display: block;
+  }
+  /* Marcar pestaña activa con color distinto */
+  #pestana1:checked ~ label[for="pestana1"],
+  #pestana2:checked ~ label[for="pestana2"],
+  #pestana3:checked ~ label[for="pestana3"] {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+/* Ejercicio 10*/
+.selector-categorias {
+    width: 40%;
+    margin: 0 auto;
+    background-color: var(--color-fondo-formulario);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--color-input-borde);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+}
+
+.selector-categorias__etiqueta {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-negro);
+}
+
+.selector-categorias__desplegable {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--color-input-borde);
+    border-radius: 6px;
+    background-color: var(--color-blanco);
+    color: var(--color-negro);
+}
+.selector-categorias__desplegable:focus {
+    outline: none;
+    border-color: var(--color-input-focus);
+}
+/* Ejercicio 11*/
+
+/* Ejercicio 12*/
+
+/* Ejercicio 13*/
+
+/* Ejercicio 14*/
+
+/* Ejercicio 15*/
