@@ -56,8 +56,41 @@
             </div>
             <div class="main__ejercicios" id="03ACTIVIDAD">
                 <h2 class="main__titulo">Ejercicio 03</h2>
-                <form>
-                    
+                <h3>Formulario para conocerte</h3>
+                <form method="get" enctype="multipart/form-data" class="formulario">
+                    <label class="formulario__name">Nombre:</label>
+                    <input type="text" name="nombre" placeholder="Ingrese su nombre" required>
+                    <label class="formulario__name">Número Telefonico:</label>
+                    <input type="number" name="numero" placeholder="Ingrese su Número Telefonico" required>
+                    <label class="formulario__name">Color Favorito:</label>
+                    <select name="color">
+                        <option>Rojo</option>
+                        <option>Azul</option>
+                        <option>Amarillo</option>
+                        <option>Verde</option>
+                        <option>Negro</option>
+                        <option>Morado</option>
+                        <option>Naranja</option>
+                        <option>Dorado</option>
+                        <option>Plateado</option>
+                    </select>
+                    <label class="formulario__name">Genero Musicales:</label>
+                    <label for="femenino">Pop</label>
+                    <input type="radio" value="pop" name="genero" id="pop">
+                    <label for="masculino">Electronica</label>
+                    <input type="radio" value="Electro" name="genero" id="electronica">
+                    <label for="masculino">Salsa</label>
+                    <input type="radio" value="Sal" name="genero" id="salsa">
+                    <label for="masculino">Vallenato</label>
+                    <input type="radio" value="Vallen" name="genero" id="vallenato">
+                    <label for="femenino">Hip Hop</label>
+                    <input type="radio" value="Hip" name="genero" id="hip hop">
+                    <label for="masculino">Rock</label>
+                    <input type="radio" value="Roc" name="genero" id="rock">
+                    <label for="masculino">Jazz</label>
+                    <input type="radio" value="Jaz" name="genero" id="jazz">
+                    <label for="masculino">Clasica</label>
+                    <input type="radio" value="Clas" name="genero" id="clasica">
                 </form>
                 <a href="#Volver" class="main__volver">Volver</a>
             </div>
