@@ -9,6 +9,7 @@
     --color-azul: blue;
     --color-titulo-fondo: #ff7355;
     --color-fondo-navegacion: #f0f0f0;
+    --color-fondo-nav: #3267ff;
 }
 body {
     font-family: 'Arial', sans-serif;
@@ -45,7 +46,7 @@ body {
     display: block;
     margin-bottom: 10px;
     text-decoration: none;
-    color: var(--color-link-navegacion);
+    color: var(--color-negro);
 }
 .main{
     width: 100%;
@@ -58,7 +59,6 @@ body {
 }
 .main__ejercicios{
     background-color: #ebbfb5;
-    padding: 20px;
     font-size: 18px;
     border: solid 5px var(--color-negro);
     width: 80%;
@@ -82,4 +82,16 @@ body {
 }
 .main__volver{
     margin-top: 50px;
+    font-size: 20px;
+    margin-top: 50px;
+}
+.main__nav{
+    background-color: var(--color-fondo-nav);
+    padding: 50px;
+}
+.main__nav a{
+    color: var(--color-blanco);
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 30px;
 }
