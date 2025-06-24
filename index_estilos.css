@@ -1,598 +1,670 @@
+/* Reset de estilos: elimina márgenes y paddings por defecto, y define el modelo de caja para todos los elementos */
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
+/* Variables globales de color definidas en :root para reutilizar fácilmente */
 :root {
     --negro: #000;
     --blanco: #fff;
     --azul: blue;
-    --color-titulo-fondo: #eda493;
-    --color-fondo-navegacion: #f4fab9;
-    --color-fondo-nav: #1553f0;
-    --color-fondo-tarjeta: #5fc2dd;
-    --color-borde-tarjeta: #ffffff;
-    --color-boton-fondo: #ffc107;
-    --color-hover-nav: #000000;
-    --color-input-borde: #ccc;
-    --color-input-focus: #005eff;
-    --color-fondo-formulario: #9ff3ef;
-    --color-fondo-lista: #67bf6d;
-    --color-item-lista: #000000;
-    --color-borde-lista: #ddd;
-    --color-borde-galeria: #ccc;
-    --color-sombra-imagen: rgba(0, 0, 0, 0.2);
-    --color-alerta-info: #d9edf7;
-    --color-alerta-exito: #d4edda;
-    --color-alerta-advertencia: #fff3cd;
-    --color-alerta-error: #f8d7da;
-    --color-borde-info: #31708f;
-    --color-borde-exito: #155724;
-    --color-borde-advertencia: #856404;
-    --color-borde-error: #721c24;
-    --color-tabla-encabezado: #e3e3e3;
-    --color-tabla-fila-par: #f9f9f9;
-    --color-tabla-borde: #dcdcdc;
-    --color-texto-tabla: #333;
-    --color-fondo-pie: #1a1a1a;
-    --color-texto-pie: #e0e0e0;
-    --color-enlace-pie: #9bdcff;
-    --color-estrella-activa: #ffd700;
-    --color-estrella-inactiva: #ccc;
-    --color-texto: #333;
-    --color-borde-reproductor: #ccc;
-    --color-fondo-reproductor: #f0f0f0;
-    --color-fondo-sidebar: #f5f5f5;
-    --color-borde-sidebar: #ccc;
-    --color-texto-sidebar: #333;
-    --color-enlace-hover: #3267ff;
-    --color-fondo-carrito: #fefefe;
-    --color-borde-carrito: #ddd;
-    --color-nombre-producto: #333;
-    --color-precio: #27ae60;
-    --color-total: #000;
-    --color-fondo-total: #e0e0e0;
-    --color-fondo-blog: #ffffff;
-    --color-borde-blog: #ccc;
-    --color-texto-blog: #333;
-    --color-titulo-blog: #2c3e50;
-    --color-autor-blog: #888;
-    --color-fondo-pie: #333;
-    --color-texto-pie: #f0f0f0;
-    --color-enlace-pie: #ff7355;
+    --color-titulo-fondo: #eda493; /* Fondo para títulos principales */
+    --color-fondo-navegacion: #f4fab9; /* Fondo para contenedores de navegación */
+    --color-fondo-nav: #1553f0; /* Fondo específico para el nav del ejercicio 2 */
+    --color-fondo-tarjeta: #5fc2dd; /* Fondo de las tarjetas */
+    --color-borde-tarjeta: #ffffff; /* Borde blanco para las tarjetas */
+    --color-boton-fondo: #ffc107; /* Fondo de los botones tipo volver */
+    --color-hover-nav: #000000; /* Color al pasar el mouse en nav */
+    --color-input-borde: #ccc; /* Borde de inputs por defecto */
+    --color-input-focus: #005eff; /* Borde al enfocar input */
+    --color-fondo-formulario: #9ff3ef; /* Fondo de formularios */
+    --color-fondo-lista: #67bf6d; /* Fondo de listas de tareas */
+    --color-item-lista: #000000; /* Color de texto en los ítems */
+    --color-borde-lista: #ddd; /* Borde para lista de tareas */
+    --color-borde-galeria: #ccc; /* Borde de las imágenes de la galería */
+    --color-sombra-imagen: rgba(0, 0, 0, 0.2); /* Sombra de imágenes */
+    --color-alerta-info: #d9edf7; /* Fondo alerta tipo información */
+    --color-alerta-exito: #d4edda; /* Fondo alerta tipo éxito */
+    --color-alerta-advertencia: #fff3cd; /* Fondo alerta tipo advertencia */
+    --color-alerta-error: #f8d7da; /* Fondo alerta tipo error */
+    --color-borde-info: #31708f; /* Color borde/info texto info */
+    --color-borde-exito: #155724; /* Color borde/info éxito */
+    --color-borde-advertencia: #856404; /* Color borde/info advertencia */
+    --color-borde-error: #721c24; /* Color borde/info error */
+    --color-tabla-encabezado: #e3e3e3; /* Fondo encabezado de tablas */
+    --color-tabla-fila-par: #f9f9f9; /* Fondo para filas pares */
+    --color-tabla-borde: #dcdcdc; /* Borde de las tablas */
+    --color-texto-tabla: #333; /* Texto de las tablas */
+    --color-fondo-pie: #1a1a1a; /* Fondo del pie de página */
+    --color-texto-pie: #e0e0e0; /* Texto del pie de página */
+    --color-enlace-pie: #9bdcff; /* Color de enlaces en el pie */
+    --color-estrella-activa: #ffd700; /* Color estrella activa */
+    --color-estrella-inactiva: #ccc; /* Color estrella inactiva */
+    --color-texto: #333; /* Color general de textos */
+    --color-borde-reproductor: #ccc; /* Borde del reproductor */
+    --color-fondo-reproductor: #f0f0f0; /* Fondo del reproductor */
+    --color-fondo-sidebar: #f5f5f5; /* Fondo barra lateral */
+    --color-borde-sidebar: #ccc; /* Borde barra lateral */
+    --color-texto-sidebar: #333; /* Texto barra lateral */
+    --color-enlace-hover: #3267ff; /* Hover en enlaces barra lateral */
+    --color-fondo-carrito: #fefefe; /* Fondo del carrito */
+    --color-borde-carrito: #ddd; /* Borde del carrito */
+    --color-nombre-producto: #333; /* Color nombre producto */
+    --color-precio: #27ae60; /* Color precio producto */
+    --color-total: #000; /* Color total final */
+    --color-fondo-total: #e0e0e0; /* Fondo del total */
+    --color-fondo-blog: #ffffff; /* Fondo publicaciones blog */
+    --color-borde-blog: #ccc; /* Borde publicaciones */
+    --color-texto-blog: #333; /* Texto publicaciones */
+    --color-titulo-blog: #2c3e50; /* Título publicaciones */
+    --color-autor-blog: #888; /* Color del autor */
+    --color-fondo-pie: #333; /* Fondo pie página (redefinido) */
+    --color-texto-pie: #f0f0f0; /* Texto pie página (redefinido) */
+    --color-enlace-pie: #ff7355; /* Enlaces pie página (redefinido) */
 }
+/* Tipografía principal de la página */
 body {
     font-family: 'Poppins', sans-serif;
 }
 /* Navegación Ejercicio */
-.header__titulo{
-    background-color: var(--color-titulo-fondo);
-    color: var(--blanco);
-    font-size: 26px;
-    padding: 15px 20px;
-    text-align: center;
+/* Estilo para el título principal del header */
+.header__titulo {
+    background-color: var(--color-titulo-fondo); /* Color de fondo usando una variable */
+    color: var(--blanco); /* Texto blanco */
+    font-size: 26px; /* Tamaño de letra grande */
+    padding: 15px 20px; /* Espaciado interno (arriba/abajo: 15px, lados: 20px) */
+    text-align: center; /* Centra el texto */
 }
-.header__contenedor{
-    margin: 20px;
-    text-align: center;
-    width: 100%;
+/* Contenedor del header con margen y centrado de texto */
+.header__contenedor {
+    margin: 20px; /* Margen alrededor del contenedor */
+    text-align: center; /* Centra su contenido */
+    width: 100%; /* Ocupa todo el ancho disponible */
 }
-.header__imagen{
-    border: 2px solid var(--negro);
-    border-radius: 8px;
-    width: 500px;
-    height: 350px;
+/* Estilos para una imagen dentro del header */
+.header__imagen {
+    border: 2px solid var(--negro); /* Borde negro de 2px */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 500px; /* Ancho fijo */
+    height: 350px; /* Altura fija */
 }
-.header__navegacion{
-    background-color: var(--color-fondo-navegacion);
-    padding: 30px;
-    margin: 10px auto;
-    width: 95%;
-    max-width: 1000px;
-    text-align: center;
-    border-radius: 10px;
+/* Contenedor de la barra de navegación */
+.header__navegacion {
+    background-color: var(--color-fondo-navegacion); /* Fondo personalizado */
+    padding: 30px; /* Espacio interno */
+    margin: 10px auto; /* Margen vertical y centrado horizontal */
+    width: 95%; /* Ancho del 95% del contenedor padre */
+    max-width: 1000px; /* Máximo ancho */
+    text-align: center; /* Centrado del contenido */
+    border-radius: 10px; /* Bordes redondeados */
 }
-.header__navegacion a{
-    display: inline-block;
-    width: 30%;
-    min-width: 180px;
-    margin: 10px;
-    padding: 12px;
-    text-decoration: none;
-    background-color: var(--azul);
-    color: var(--blanco);
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
+/* Estilos para cada enlace dentro de la navegación */
+.header__navegacion a {
+    display: inline-block; /* Se comportan como bloques en línea */
+    width: 30%; /* Ocupan 30% del ancho del contenedor */
+    min-width: 180px; /* Mínimo ancho para mantener legibilidad */
+    margin: 10px; /* Espacio entre enlaces */
+    padding: 12px; /* Espacio interno */
+    text-decoration: none; /* Quita subrayado */
+    background-color: var(--azul); /* Fondo azul */
+    color: var(--blanco); /* Texto blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves al pasar el cursor */
+    text-align: center; /* Centra el texto */
 }
+/* Efecto hover para los enlaces de navegación */
 .header__navegacion a:hover {
-    background-color: var(--azul-claro);
-    transform: translateY(-2px);
+    background-color: var(--azul-claro); /* Cambia el fondo (variable no definida en tu root, deberías agregarla) */
+    transform: translateY(-2px); /* Eleva el enlace ligeramente al pasar el mouse */
 }
-/* Ejercicio 01 */
-.contenido__ejercicio{
-    background-color: var(--color-titulo-fondo);
+/* Ejercicio 01 - Tarjetas */
+/* Fondo para la sección del ejercicio */
+.contenido__ejercicio {
+    background-color: var(--color-titulo-fondo); /* Fondo de color definido en variables */
 }
-.contenido__titulo{
+/* Título centrado */
+.contenido__titulo {
     text-align: center;
 }
-.tarjeta{
-    background-color: var(--color-fondo-tarjeta);
-    border: 2px solid var(--color-borde-tarjeta);
-    border-radius: 10px;
-    padding: 20px;
-    width: 25%;
-    margin: 0 auto;
-    text-align: center;
+/* Contenedor de tarjeta (producto o elemento destacado) */
+.tarjeta {
+    background-color: var(--color-fondo-tarjeta); /* Fondo personalizado */
+    border: 2px solid var(--color-borde-tarjeta); /* Borde blanco */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espacio interno */
+    width: 25%; /* Ancho del 25% del contenedor padre */
+    margin: 0 auto; /* Centrado horizontal */
+    text-align: center; /* Centra el contenido dentro de la tarjeta */
 }
+/* Imagen dentro de la tarjeta */
 .tarjeta__imagen {
-    width: 60%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
+    width: 60%; /* Ancho relativo */
+    height: auto; /* Altura automática */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-bottom: 15px; /* Espacio debajo de la imagen */
 }
+/* Nombre o título dentro de la tarjeta */
 .tarjeta__nombre {
-    font-size: 24px;
-    color: var(--negro);
-    margin-bottom: 10px;
+    font-size: 24px; /* Texto grande */
+    color: var(--negro); /* Texto negro */
+    margin-bottom: 10px; /* Espacio debajo */
 }
+/* Descripción del contenido */
 .tarjeta__descripcion {
-    font-size: 16px;
-    margin-bottom: 10px;
+    font-size: 16px; /* Tamaño de texto normal */
+    margin-bottom: 10px; /* Espacio debajo */
 }
-.contenido__volver{
-    display: inline-block;
-    text-align: center;
-    margin: 20px auto;
-    font-size: 20px;
-    padding: 10px 20px;
-    background-color: var(--color-boton-fondo); 
-    color: var(--negro, #000);
-    border: 2px solid var(--negro, #000);
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s, color 0.3s;
-    display: block;
-    width: fit-content;
+/* Botón para volver o regresar */
+.contenido__volver {
+    display: inline-block; /* Se comporta como bloque pero en línea */
+    text-align: center; /* Centra el texto */
+    margin: 20px auto; /* Espaciado y centrado */
+    font-size: 20px; /* Tamaño de fuente grande */
+    padding: 10px 20px; /* Relleno interno */
+    background-color: var(--color-boton-fondo); /* Fondo amarillo */
+    color: var(--negro, #000); /* Texto negro con respaldo por si la variable falla */
+    border: 2px solid var(--negro, #000); /* Borde negro */
+    border-radius: 8px; /* Bordes redondeados */
+    text-decoration: none; /* Quita subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves */
+    display: block; /* Se muestra como bloque para centrar */
+    width: fit-content; /* El ancho se ajusta al contenido */
 }
+/* Efecto hover para el botón volver */
 .contenido__volver:hover {
-    background-color: var(--negro);
-    color: var(--color-boton-fondo);
-    cursor: pointer;
+    background-color: var(--negro); /* Cambia el fondo a negro */
+    color: var(--color-boton-fondo); /* Cambia el texto al color del fondo anterior */
+    cursor: pointer; /* Muestra la mano del mouse al pasar encima */
 }
-/* Ejercicio 02 */
+/* Ejercicio 02 - Navegación Redes Sociales */
+/* Contenedor de los enlaces de redes sociales */
 .menu-navegacion {
-    background-color: var(--color-fondo-nav);
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    margin: 0 auto;
-    width: 60%;
+    background-color: var(--color-fondo-nav); /* Fondo azul fuerte */
+    padding: 30px; /* Espacio interno */
+    text-align: center; /* Centra el contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    margin: 0 auto; /* Centrado horizontal */
+    width: 60%; /* Ancho medio del contenedor */
 }
-
+/* Estilos para cada enlace de red social */
 .menu-navegacion__enlace {
-    display: inline-block;
-    margin: 0 15px;
-    font-size: 18px;
-    color: var(--blanco);
-    text-decoration: none;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
+    display: inline-block; /* Se comportan como bloques en línea */
+    margin: 0 15px; /* Espacio entre enlaces */
+    font-size: 18px; /* Tamaño de fuente grande */
+    color: var(--blanco); /* Texto blanco */
+    text-decoration: none; /* Quita subrayado */
+    padding: 10px 15px; /* Espaciado interno */
+    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
 }
-
+/* Efecto al pasar el mouse sobre los enlaces */
 .menu-navegacion__enlace:hover {
-    background-color: var(--color-hover-nav);
-    border-radius: 5px;
+    background-color: var(--color-hover-nav); /* Cambia el fondo a negro */
+    border-radius: 5px; /* Bordes redondeados al hacer hover */
 }
-/* Ejercicio 03 */
+/* Ejercicio 03 - Formulario */
+/* Contenedor del formulario de contacto */
 .formulario-contacto {
-    background-color: var(--color-fondo-formulario);
-    padding: 25px;
-    border-radius: 10px;
-    width: 40%;
-    margin: 0 auto;
-    font-size: 16px;
-    border: 1px solid var(--negro);
+    background-color: var(--color-fondo-formulario); /* Fondo celeste */
+    padding: 25px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 40%; /* Ancho del formulario */
+    margin: 0 auto; /* Centrado horizontal */
+    font-size: 16px; /* Tamaño de fuente normal */
+    border: 1px solid var(--negro); /* Borde negro */
 }
+/* Etiquetas del formulario */
 .formulario-contacto__etiqueta {
-    font-weight: bold;
-    color: var(--negro);
+    font-weight: bold; /* Texto en negrita */
+    color: var(--negro); /* Texto negro */
 }
+/* Campos de entrada y select del formulario */
 .formulario-contacto__input,
 .formulario-contacto__select {
-    padding: 8px;
-    border: 1px solid var(--color-input-borde);
-    border-radius: 5px;
-    font-size: 16px;
-    width: 100%;
+    padding: 8px; /* Espacio interno */
+    border: 1px solid var(--color-input-borde); /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de texto */
+    width: 100%; /* Ocupa todo el ancho disponible */
 }
+/* Estilo cuando el input o select están en foco */
 .formulario-contacto__input:focus,
 .formulario-contacto__select:focus {
-    outline: none;
-    border-color: var(--color-input-focus);
+    outline: none; /* Quita el contorno azul por defecto del navegador */
+    border-color: var(--color-input-focus); /* Borde azul personalizado */
 }
+/* Grupo de opciones (por ejemplo radio buttons) */
 .formulario-contacto__grupo {
-    border: none;
-    padding: 0;
-    margin-top: 10px;
+    border: none; /* Sin borde */
+    padding: 0; /* Sin espacio interno */
+    margin-top: 10px; /* Espacio superior */
 }
+/* Leyenda o título del grupo */
 .formulario-contacto__leyenda {
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-weight: bold; /* Texto en negrita */
+    margin-bottom: 10px; /* Espacio inferior */
 }
+/* Cada opción individual (como opción de radio) */
 .formulario-contacto__opcion {
-    display: block;
-    margin-bottom: 5px;
+    display: block; /* Se muestra en línea nueva */
+    margin-bottom: 5px; /* Espacio entre opciones */
 }
+/* Espacio a la derecha de los radios */
 .formulario-contacto__radio {
     margin-right: 10px;
 }
-/* Ejercicio 04 */
+/* Ejercicio 04 - Lista de tareas */
+/* Contenedor principal de la lista de tareas */
 .lista-tareas {
-    background-color: var(--color-fondo-lista);
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid var(--color-borde-lista);
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-fondo-lista); /* Fondo definido con variable */
+    width: 50%; /* Ocupa la mitad del contenedor padre */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid var(--color-borde-lista); /* Borde con color personalizado */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor */
 }
+/* Título de la lista de tareas */
 .lista-tareas__titulo {
-    font-size: 22px;
-    color: var(--negro);
-    margin-bottom: 15px;
+    font-size: 22px; /* Tamaño grande */
+    color: var(--negro); /* Texto negro */
+    margin-bottom: 15px; /* Espacio debajo */
 }
+/* Elimina viñetas de la lista */
 .lista-tareas__items {
-    list-style: none;
-    padding-left: 0;
+    list-style: none; /* Quita puntos de la lista */
+    padding-left: 0; /* Quita sangría izquierda */
 }
+/* Estilo para cada ítem de la lista */
 .lista-tareas__item {
-    background-color: var(--color-fondo-navegacion);
-    color: var(--color-item-lista);
-    margin-bottom: 10px;
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 16px;
-    text-align: left;
+    background-color: var(--color-fondo-navegacion); /* Fondo azul (reutilizado) */
+    color: var(--color-item-lista); /* Texto con color personalizado */
+    margin-bottom: 10px; /* Espacio entre elementos */
+    padding: 12px; /* Relleno interno */
+    border-radius: 6px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de texto normal */
+    text-align: left; /* Alineación izquierda */
 }
-/* Ejercicio 05*/
+/* Ejercicio 05 - Galería de imágenes */
+/* Contenedor general de la galería */
 .galeria {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    font-size: 0; /* Elimina espacio entre elementos inline-block */
-    text-align: center; /* Para centrar si hay menos elementos */
+    width: 80%; /* Ocupa el 80% del ancho */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Relleno interno */
+    font-size: 0; /* Quita espacio en blanco entre elementos inline-block */
+    text-align: center; /* Centra elementos si no hay muchos */
 }
+/* Contenedor de cada imagen */
 .galeria__imagen-contenedor {
-    display: inline-block;
-    width: 200px;
-    margin: 10px;
-    overflow: hidden;
-    border: 2px solid var(--color-borde-galeria);
-    border-radius: 10px;
-    box-shadow: 2px 2px 8px var(--color-sombra-imagen);
-    transition: transform 0.3s ease;
-    vertical-align: top;
+    display: inline-block; /* Permite alinear en fila */
+    width: 200px; /* Ancho fijo */
+    margin: 10px; /* Espacio alrededor */
+    overflow: hidden; /* Oculta lo que se sale del contenedor */
+    border: 2px solid var(--color-borde-galeria); /* Borde con color personalizado */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 2px 2px 8px var(--color-sombra-imagen); /* Sombra para profundidad */
+    transition: transform 0.3s ease; /* Suaviza el efecto al hacer hover */
+    vertical-align: top; /* Alinea verticalmente con respecto al top */
 }
+/* Efecto hover sobre el contenedor de imagen */
 .galeria__imagen-contenedor:hover {
-    transform: scale(1.03);
+    transform: scale(1.03); /* Agranda ligeramente la imagen */
 }
+/* Imagen dentro del contenedor */
 .galeria__imagen {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    width: 100%; /* Ocupa todo el contenedor */
+    height: 100%; /* Altura completa */
+    object-fit: cover; /* Cubre el contenedor sin deformarse */
+    display: block; /* Quita espacio inferior */
 }
-/* Ejercicio 06*/
+/* Ejercicio 06 - Alertas */
+/* Estilo base para cualquier alerta */
 .alerta {
-    padding: 15px 20px;
-    margin: 15px auto;
-    width: 60%;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    border-left: 6px solid;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 20px; /* Espacio interno */
+    margin: 15px auto; /* Espacio externo y centrado */
+    width: 60%; /* Ancho medio */
+    font-size: 16px; /* Texto normal */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 8px; /* Bordes redondeados */
+    border-left: 6px solid; /* Borde lateral izquierdo más grueso */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para profundidad */
 }
+/* Alerta informativa */
 .alerta--informacion {
-    background-color: var(--color-alerta-info);
-    border-color: var(--color-borde-info);
-    color: var(--color-borde-info);
+    background-color: var(--color-alerta-info); /* Fondo celeste */
+    border-color: var(--color-borde-info); /* Borde celeste más fuerte */
+    color: var(--color-borde-info); /* Texto en tono del borde */
 }
+/* Alerta de éxito */
 .alerta--exito {
-    background-color: var(--color-alerta-exito);
-    border-color: var(--color-borde-exito);
-    color: var(--color-borde-exito);
+    background-color: var(--color-alerta-exito); /* Fondo verde claro */
+    border-color: var(--color-borde-exito); /* Borde verde */
+    color: var(--color-borde-exito); /* Texto verde */
 }
+/* Alerta de advertencia */
 .alerta--advertencia {
-    background-color: var(--color-alerta-advertencia);
-    border-color: var(--color-borde-advertencia);
-    color: var(--color-borde-advertencia);
+    background-color: var(--color-alerta-advertencia); /* Fondo amarillo */
+    border-color: var(--color-borde-advertencia); /* Borde amarillo oscuro */
+    color: var(--color-borde-advertencia); /* Texto en el mismo tono */
 }
+/* Alerta de error */
 .alerta--error {
-    background-color: var(--color-alerta-error);
-    border-color: var(--color-borde-error);
-    color: var(--color-borde-error);
+    background-color: var(--color-alerta-error); /* Fondo rojo claro */
+    border-color: var(--color-borde-error); /* Borde rojo fuerte */
+    color: var(--color-borde-error); /* Texto rojo */
 }
-/* Ejercicio 07*/
+/* Ejercicio 07 - Tabla de datos */
+/* Tabla contenedora */
 .tabla-datos {
-    width: 70%;
-    margin: 0 auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-size: 16px;
+    width: 70%; /* Ancho del 70% */
+    margin: 0 auto; /* Centrada */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+    font-size: 16px; /* Tamaño normal */
 }
+/* Encabezado de la tabla */
 .tabla-datos__encabezado {
-    background-color: var(--color-tabla-encabezado);
+    background-color: var(--color-tabla-encabezado); /* Fondo del encabezado */
 }
+/* Estilo alternado para filas pares */
 .tabla-datos__fila:nth-child(even) {
-    background-color: var(--color-tabla-fila-par);
+    background-color: var(--color-tabla-fila-par); /* Color diferente para filas pares */
 }
+/* Celdas de la tabla */
 .tabla-datos__celda {
-    padding: 12px 15px;
-    border: 1px solid var(--color-tabla-borde);
-    color: var(--color-texto-tabla);
-    text-align: left;
+    padding: 12px 15px; /* Espaciado interno */
+    border: 1px solid var(--color-tabla-borde); /* Bordes definidos */
+    color: var(--color-texto-tabla); /* Color de texto */
+    text-align: left; /* Alineación izquierda */
 }
+/* Celdas de encabezado */
 .tabla-datos__celda--encabezado {
-    font-weight: bold;
-    color: var(--negro);
+    font-weight: bold; /* Negrita */
+    color: var(--negro); /* Texto negro */
 }
-/* Ejercicio 08*/
+/* Ejercicio 08 - Pie de página */
+/* Contenedor del pie de página */
 .pie-pagina {
-    background-color: var(--color-fondo-pie);
-    color: var(--color-texto-pie);
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 3px solid var(--azul);
+    background-color: var(--color-fondo-pie); /* Fondo oscuro */
+    color: var(--color-texto-pie); /* Texto gris claro */
+    text-align: center; /* Centra el texto */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 40px; /* Separación con contenido anterior */
+    border-top: 3px solid var(--azul); /* Línea azul arriba */
 }
+/* Texto dentro del pie */
 .pie-pagina__texto {
-    margin: 5px 0;
-    font-size: 14px;
+    margin: 5px 0; /* Margen vertical pequeño */
+    font-size: 14px; /* Texto pequeño */
 }
+/* Contenedor de redes sociales */
 .pie-pagina__redes {
-    margin-top: 10px;
+    margin-top: 10px; /* Espacio superior */
 }
+/* Enlaces de redes sociales */
 .pie-pagina__enlace {
-    color: var(--color-enlace-pie);
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 14px;
+    color: var(--color-enlace-pie); /* Color definido */
+    margin: 0 10px; /* Espacio lateral entre enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 14px; /* Tamaño del texto */
 }
+/* Hover sobre enlaces */
 .pie-pagina__enlace:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Subrayado al pasar el mouse */
 }
-/* Ejercicio 09*/
+/* Ejercicio 09 - Pestañas */
+/* Contenedor principal */
 .pestanas {
-    width: 80%;
-    margin: 20px auto;
-    background-color: #f9f9f9;
-    border: 1px solid #bbb;
-    border-radius: 8px;
-    font-family: sans-serif;
-    text-align: center;
-  }
-  /* Ocultamos los radios */
-  .pestanas__radio {
-    display: none;
-  }
-  /* Estilo de las etiquetas (botones de pestaña) */
-  .pestanas__etiqueta {
-    display: inline-block;
-    width: 33.3%;
-    padding: 10px 0;
-    background-color: #ccc;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  /* Hover */
-  .pestanas__etiqueta:hover {
-    background-color: #bbb;
-  }
-  /* Contenido oculto por defecto */
-  .pestanas__contenido {
-    display: none;
-    padding: 15px;
-    background-color: white;
-    font-size: 15px;
-    border-top: 1px solid #ddd;
-  }
-  /* Mostrar contenido según radio */
-  #pestana1:checked ~ #contenido1,
-  #pestana2:checked ~ #contenido2,
-  #pestana3:checked ~ #contenido3 {
+    width: 80%; /* Ancho amplio */
+    margin: 20px auto; /* Margen con centrado */
+    background-color: #f9f9f9; /* Fondo claro */
+    border: 1px solid #bbb; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    font-family: sans-serif; /* Fuente general */
+    text-align: center; /* Centrado del contenido */
+}
+/* Oculta los botones de radio */
+.pestanas__radio {
+    display: none; /* No se muestran en la interfaz */
+}
+/* Estilo de las etiquetas de pestaña */
+.pestanas__etiqueta {
+    display: inline-block; /* En línea y con estilo de bloque */
+    width: 33.3%; /* Ocupa un tercio del ancho */
+    padding: 10px 0; /* Relleno vertical */
+    background-color: #ccc; /* Fondo gris */
+    color: #333; /* Texto gris oscuro */
+    cursor: pointer; /* Muestra puntero de clic */
+    transition: background-color 0.3s; /* Suaviza cambios de color */
+}
+/* Hover sobre pestañas */
+.pestanas__etiqueta:hover {
+    background-color: #bbb; /* Gris más oscuro al pasar el mouse */
+}
+/* Contenido oculto por defecto */
+.pestanas__contenido {
+    display: none; /* Oculto inicialmente */
+    padding: 15px; /* Espacio interno */
+    background-color: white; /* Fondo blanco */
+    font-size: 15px; /* Texto normal */
+    border-top: 1px solid #ddd; /* Línea superior */
+}
+/* Muestra el contenido de la pestaña activa */
+#pestana1:checked ~ #contenido1,
+#pestana2:checked ~ #contenido2,
+#pestana3:checked ~ #contenido3 {
     display: block;
-  }
-  /* Marcar pestaña activa con color distinto */
-  #pestana1:checked ~ label[for="pestana1"],
-  #pestana2:checked ~ label[for="pestana2"],
-  #pestana3:checked ~ label[for="pestana3"] {
-    background-color: #4caf50;
-    color: white;
-    font-weight: bold;
-  }
-/* Ejercicio 10*/
+}
+/* Marca visualmente la pestaña activa */
+#pestana1:checked ~ label[for="pestana1"],
+#pestana2:checked ~ label[for="pestana2"],
+#pestana3:checked ~ label[for="pestana3"] {
+    background-color: #4caf50; /* Verde */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Negrita */
+}
+/* Ejercicio 10 - Selector de categorías */
+/* Contenedor principal */
 .selector-categorias {
-    width: 40%;
-    margin: 0 auto;
-    background-color: var(--color-fondo-formulario);
-    padding: 25px;
-    border-radius: 10px;
-    border: 1px solid var(--color-input-borde);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    font-family: Arial, sans-serif;
+    width: 40%; /* Ancho medio */
+    margin: 0 auto; /* Centrado */
+    background-color: var(--color-fondo-formulario); /* Fondo celeste */
+    padding: 25px; /* Espacio interno */
+    border-radius: 10px; /* Bordes redondeados */
+    border: 1px solid var(--color-input-borde); /* Borde gris claro */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+    font-family: Arial, sans-serif; /* Fuente limpia */
 }
-
+/* Etiqueta del selector */
 .selector-categorias__etiqueta {
-    font-size: 18px;
-    display: block;
-    margin-bottom: 10px;
-    color: var(--negro);
+    font-size: 18px; /* Tamaño grande */
+    display: block; /* Se muestra en línea propia */
+    margin-bottom: 10px; /* Espacio inferior */
+    color: var(--negro); /* Texto negro */
 }
-
+/* Estilo del desplegable */
 .selector-categorias__desplegable {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid var(--color-input-borde);
-    border-radius: 6px;
-    background-color: var(--blanco);
-    color: var(--negro);
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espacio interno */
+    font-size: 16px; /* Tamaño de texto */
+    border: 1px solid var(--color-input-borde); /* Borde gris claro */
+    border-radius: 6px; /* Bordes redondeados */
+    background-color: var(--blanco); /* Fondo blanco */
+    color: var(--negro); /* Texto negro */
 }
+/* Efecto al enfocar el desplegable */
 .selector-categorias__desplegable:focus {
-    outline: none;
-    border-color: var(--color-input-focus);
+    outline: none; /* Quita contorno por defecto */
+    border-color: var(--color-input-focus); /* Borde azul al enfocar */
 }
-/* Ejercicio 11*/
+/* Ejercicio 11 - Calificación con estrellas */
+/* Contenedor principal del sistema de calificación */
 .calificacion {
-    width: 40%;
-    margin: 0 auto;
-    background-color: var(--blanco);
-    padding: 25px;
-    text-align: center;
-    border: 1px solid var(--color-estrella-inactiva);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Ancho medio del contenedor */
+    margin: 0 auto; /* Centrado horizontal */
+    background-color: var(--blanco); /* Fondo blanco */
+    padding: 25px; /* Espaciado interno */
+    text-align: center; /* Centra el contenido */
+    border: 1px solid var(--color-estrella-inactiva); /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
+/* Título de la sección de calificación */
 .calificacion__titulo {
-    font-size: 20px;
-    margin-bottom: 15px;
-    color: var(--negro);
+    font-size: 20px; /* Texto mediano */
+    margin-bottom: 15px; /* Espacio inferior */
+    color: var(--negro); /* Texto negro */
 }
+/* Contenedor de las estrellas */
 .calificacion__estrellas {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 30px; /* Estrellas grandes */
+    margin-bottom: 10px; /* Espacio inferior */
 }
+/* Estilo de estrella activa */
 .calificacion__estrella {
-    color: var(--color-estrella-activa);
-    margin: 0 5px;
+    color: var(--color-estrella-activa); /* Color amarillo o similar */
+    margin: 0 5px; /* Espaciado lateral */
 }
+/* Estrella desactivada (gris) */
 .calificacion__estrella--gris {
-    color: var(--color-estrella-inactiva);
+    color: var(--color-estrella-inactiva); /* Color gris claro */
 }
+/* Texto descriptivo de la calificación */
 .calificacion__texto {
-    font-size: 16px;
-    color: var(--color-texto);
+    font-size: 16px; /* Texto normal */
+    color: var(--color-texto); /* Color de texto definido */
 }
-/* Ejercicio 12*/
+/* Ejercicio 12 - Reproductor de video */
+/* Contenedor del reproductor */
 .reproductor {
-    width: 60%;
-    margin: 0 auto;
-    background-color: var(--color-fondo-reproductor);
-    padding: 25px;
-    border: 1px solid var(--color-borde-reproductor);
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    text-align: center;
+    width: 60%; /* Ancho medio-grande */
+    margin: 0 auto; /* Centrado */
+    background-color: var(--color-fondo-reproductor); /* Fondo oscuro o temático */
+    padding: 25px; /* Espacio interno */
+    border: 1px solid var(--color-borde-reproductor); /* Borde gris */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* Sombra suave */
+    text-align: center; /* Centra el contenido */
 }
+/* Título del reproductor */
 .reproductor__titulo {
-    font-size: 20px;
-    color: var(--negro);
-    margin-bottom: 20px;
+    font-size: 20px; /* Tamaño mediano */
+    color: var(--negro); /* Texto negro */
+    margin-bottom: 20px; /* Espacio inferior */
 }
+/* Contenedor responsivo del video */
 .reproductor__video {
     position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; 
+    width: 100%; /* Ancho completo */
+    padding-bottom: 56.25%; /* Relación 16:9 (altura proporcional) */
     height: 0;
-    overflow: hidden;
+    overflow: hidden; /* Oculta el desborde */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
 }
+/* Iframe del video adaptado al contenedor */
 .reproductor__iframe {
     position: absolute;
     width: 100%;
     height: 100%;
-    border: none;
+    border: none; /* Sin borde */
     top: 0;
     left: 0;
 }
-/* Ejercicio 13*/
+/* Ejercicio 13 - Barra lateral */
+/* Contenedor de la barra lateral */
 .barra-lateral {
-    width: 250px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: var(--color-fondo-sidebar);
-    border: 1px solid var(--color-borde-sidebar);
-    border-radius: 8px;
-    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-    text-align: left;
+    width: 250px; /* Ancho fijo */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px; /* Relleno interno */
+    background-color: var(--color-fondo-sidebar); /* Fondo personalizado */
+    border: 1px solid var(--color-borde-sidebar); /* Borde personalizado */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+    text-align: left; /* Texto alineado a la izquierda */
 }
+/* Título de la barra lateral */
 .barra-lateral__titulo {
     font-size: 18px;
     margin-bottom: 15px;
-    color: var(--color-texto-sidebar);
+    color: var(--color-texto-sidebar); /* Texto personalizado */
 }
+/* Elimina viñetas de la lista */
 .barra-lateral__lista {
     list-style: none;
     padding-left: 0;
 }
+/* Elemento de la lista */
 .barra-lateral__item {
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Espaciado inferior */
 }
+/* Enlace dentro de la barra lateral */
 .barra-lateral__enlace {
-    text-decoration: none;
-    color: var(--color-texto-sidebar);
+    text-decoration: none; /* Sin subrayado */
+    color: var(--color-texto-sidebar); /* Color personalizado */
     font-size: 16px;
     display: block;
-    transition: color 0.3s;
+    transition: color 0.3s; /* Suaviza transición de color */
 }
+/* Hover del enlace */
 .barra-lateral__enlace:hover {
-    color: var(--color-enlace-hover);
+    color: var(--color-enlace-hover); /* Color al pasar el mouse */
     font-weight: bold;
 }
-/* Ejercicio 14*/
+/* Ejercicio 14 - Carrito de compras */
+/* Contenedor del carrito */
 .carrito {
     width: 60%;
     margin: 0 auto;
     padding: 20px;
-    background-color: var(--color-fondo-carrito);
-    border: 1px solid var(--color-borde-carrito);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: var(--color-fondo-carrito); /* Fondo claro o temático */
+    border: 1px solid var(--color-borde-carrito); /* Borde gris */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
     font-family: Arial, sans-serif;
 }
-
+/* Título del carrito */
 .carrito__titulo {
     font-size: 22px;
     margin-bottom: 20px;
-    color: var(--color-nombre-producto);
+    color: var(--color-nombre-producto); /* Color destacado */
     text-align: center;
 }
-
+/* Contenedor individual de un ítem */
 .carrito__item {
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid var(--color-borde-carrito);
+    border-bottom: 1px solid var(--color-borde-carrito); /* Línea divisoria */
 }
-
+/* Imagen del producto */
 .carrito__imagen {
-    float: left;
+    float: left; /* Posiciona la imagen a la izquierda */
     width: 80px;
     height: 80px;
-    margin-right: 15px;
+    margin-right: 15px; /* Separación del texto */
     border-radius: 6px;
-    object-fit: cover;
-    border: 1px solid #ccc;
+    object-fit: cover; /* Mantiene proporciones y cubre */
+    border: 1px solid #ccc; /* Borde gris claro */
 }
-
+/* Información del producto */
 .carrito__info {
     display: inline-block;
     vertical-align: top;
-    width: 75%; /* para que no choque con la imagen */
+    width: 75%; /* Espacio disponible a la derecha de la imagen */
 }
+/* Nombre del producto */
 .carrito__nombre {
     font-size: 16px;
     color: var(--color-nombre-producto);
     margin: 0 0 5px;
 }
+/* Precio individual */
 .carrito__precio {
     font-size: 16px;
     color: var(--color-precio);
     margin: 0;
 }
+/* Total del carrito */
 .carrito__total {
     margin-top: 20px;
     padding: 10px;
@@ -601,6 +673,7 @@ body {
     font-weight: bold;
     text-align: right;
 }
+/* Texto del total */
 .carrito__texto-total,
 .carrito__precio-total {
     font-size: 18px;
@@ -608,67 +681,78 @@ body {
     display: inline-block;
     margin: 0 10px;
 }
-/* Ejercicio 15*/
+/* Ejercicio 15 - Publicación de blog */
+/* Contenedor principal de la publicación */
 .publicacion {
     width: 70%;
     margin: 0 auto;
-    background-color: var(--color-fondo-blog);
-    border: 1px solid var(--color-borde-blog);
-    border-radius: 10px;
+    background-color: var(--color-fondo-blog); /* Fondo blanco o claro */
+    border: 1px solid var(--color-borde-blog); /* Borde personalizado */
+    border-radius: 10px; /* Bordes redondeados */
     padding: 25px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra suave */
     font-family: Arial, sans-serif;
 }
+/* Título de la entrada */
 .publicacion__titulo {
     font-size: 24px;
-    color: var(--color-titulo-blog);
+    color: var(--color-titulo-blog); /* Color destacado */
     margin-bottom: 15px;
     text-align: center;
 }
+/* Imagen destacada */
 .publicacion__imagen {
     width: 100%;
     border-radius: 6px;
     margin-bottom: 15px;
 }
+/* Contenido principal */
 .publicacion__contenido {
     font-size: 25px;
-    color: var(--color-texto-blog);
-    line-height: 1.6;
+    color: var(--color-texto-blog); /* Color de texto */
+    line-height: 1.6; /* Espaciado entre líneas */
     margin-bottom: 20px;
 }
+/* Información del autor */
 .publicacion__autor {
     font-size: 18px;
-    color: var(--color-autor-blog);
+    color: var(--color-autor-blog); /* Texto gris o personalizado */
     text-align: right;
 }
+/* Nombre del autor */
 .publicacion__nombre {
-    color: var(--color-titulo-blog);
+    color: var(--color-titulo-blog); /* Mismo color que título */
 }
-/* Pie de pagina*/
+/* Pie de página general */
 .pie-pagina {
-    background-color: var(--color-fondo-pie);
-    color: var(--color-texto-pie);
+    background-color: var(--color-fondo-pie); /* Fondo oscuro o temático */
+    color: var(--color-texto-pie); /* Texto claro */
     padding: 30px 20px;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 50px; /* Separación del contenido anterior */
 }
+/* Contenedor interno */
 .pie-pagina__contenedor {
     max-width: 1000px;
     margin: 0 auto;
 }
+/* Texto general del pie */
 .pie-pagina__texto {
     font-size: 16px;
     margin: 5px 0;
 }
+/* Contenedor de enlaces a redes */
 .pie-pagina__redes {
     margin-top: 10px;
 }
+/* Enlaces individuales */
 .pie-pagina__enlace {
     color: var(--color-enlace-pie);
     text-decoration: none;
     margin: 0 10px;
     font-weight: bold;
 }
+/* Hover sobre enlaces */
 .pie-pagina__enlace:hover {
     text-decoration: underline;
 }
