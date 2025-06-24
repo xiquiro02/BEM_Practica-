@@ -87,11 +87,28 @@ body {
 }
 .main__nav{
     background-color: var(--color-fondo-nav);
-    padding: 50px;
+    padding: 70px;
 }
 .main__nav a{
     color: var(--color-blanco);
     font-size: 20px;
     text-decoration: none;
     margin-left: 30px;
+}
+.formulario{
+    margin: 0 auto;
+    padding: 20px;
+    width: 25%;
+    height: 50%;
+}
+.formulario__name{
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+input{
+    height: 25px;
+}
+select{
+    height: 25px;
 }
