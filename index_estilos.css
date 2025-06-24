@@ -12,11 +12,32 @@
     --color-fondo-nav: #3267ff;
     --color-fondo-tarjeta: #fef6f5;
     --color-borde-tarjeta: #d9d9d9;
+    --color-boton-fondo: #ffc107;
+    --color-fondo-nav: #3267ff;
+    --color-hover-nav: #244ccc;
+    --color-input-borde: #ccc;
+    --color-input-focus: #005eff;
+    --color-fondo-formulario: #f9f9f9;
+    --color-fondo-lista: #ffffff;
+    --color-item-lista: #444;
+    --color-borde-lista: #ddd;
+    --color-borde-galeria: #ccc;
+    --color-sombra-imagen: rgba(0, 0, 0, 0.2);
+
+    --color-alerta-info: #d9edf7;
+    --color-alerta-exito: #d4edda;
+    --color-alerta-advertencia: #fff3cd;
+    --color-alerta-error: #f8d7da;
+    --color-borde-info: #31708f;
+    --color-borde-exito: #155724;
+    --color-borde-advertencia: #856404;
+    --color-borde-error: #721c24;
+
 }
 body {
     font-family: 'Poppins', sans-serif;
 }
-
+/* Navegación Ejercicio */
 .header__titulo{
     background-color: var(--color-titulo-fondo);
     color: var(--color-blanco);
@@ -61,6 +82,10 @@ body {
     background-color: var(--color-azul-claro);
     transform: translateY(-2px);
 }
+/* Ejercicio 01 */
+.contenido__ejercicio{
+    background-color: var(--color-titulo-fondo);
+}
 .contenido__titulo{
     text-align: center;
 }
@@ -69,7 +94,7 @@ body {
     border: 2px solid var(--color-borde-tarjeta);
     border-radius: 10px;
     padding: 20px;
-    width: 50%;
+    width: 25%;
     margin: 0 auto;
     text-align: center;
 }
@@ -88,32 +113,180 @@ body {
     font-size: 16px;
     margin-bottom: 10px;
 }
-
-.main__nav{
-    background-color: var(--color-fondo-nav);
-    padding: 70px;
-}
-.main__nav a{
-    color: var(--color-blanco);
+.contenido__volver{
+    display: inline-block;
+    text-align: center;
+    margin: 20px auto;
     font-size: 20px;
+    padding: 10px 20px;
+    background-color: var(--color-boton-fondo); 
+    color: var(--color-negro, #000);
+    border: 2px solid var(--color-negro, #000);
+    border-radius: 8px;
     text-decoration: none;
-    margin-left: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    width: fit-content;
+}
+.contenido__volver:hover {
+    background-color: var(--color-negro);
+    color: var(--color-boton-fondo);
+    cursor: pointer;
+}
+/* Ejercicio 02 */
+.menu-navegacion {
+    background-color: var(--color-fondo-nav);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: 60%;
 }
 
-.formulario{
-    margin: 0 auto;
-    padding: 20px;
-    width: 25%;
-    height: 50%;
-}
-.formulario__name{
-    display: block;
+.menu-navegacion__enlace {
+    display: inline-block;
+    margin: 0 15px;
     font-size: 18px;
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-navegacion__enlace:hover {
+    background-color: var(--color-hover-nav);
+    border-radius: 5px;
+}
+/* Ejercicio 03 */
+.formulario-contacto {
+    background-color: var(--color-fondo-formulario);
+    padding: 25px;
+    border-radius: 10px;
+    width: 40%;
+    margin: 0 auto;
+    font-size: 16px;
+    border: 1px solid var(--color-negro);
+}
+.formulario-contacto__etiqueta {
+    font-weight: bold;
+    color: var(--color-negro);
+}
+.formulario-contacto__input,
+.formulario-contacto__select {
+    padding: 8px;
+    border: 1px solid var(--color-input-borde);
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+}
+.formulario-contacto__input:focus,
+.formulario-contacto__select:focus {
+    outline: none;
+    border-color: var(--color-input-focus);
+}
+.formulario-contacto__grupo {
+    border: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.formulario-contacto__leyenda {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.formulario-contacto__opcion {
+    display: block;
     margin-bottom: 5px;
 }
-input{
-    height: 25px;
+.formulario-contacto__radio {
+    margin-right: 10px;
 }
-select{
-    height: 25px;
+/* Ejercicio 04 */
+.lista-tareas {
+    background-color: var(--color-fondo-lista);
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--color-borde-lista);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
+.lista-tareas__titulo {
+    font-size: 22px;
+    color: var(--color-negro);
+    margin-bottom: 15px;
+}
+.lista-tareas__items {
+    list-style: none;
+    padding-left: 0;
+}
+.lista-tareas__item {
+    background-color: var(--color-fondo-navegacion);
+    color: var(--color-item-lista);
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
+    text-align: left;
+}
+/* Ejercicio 05*/
+.galeria {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 0; /* Elimina espacio entre elementos inline-block */
+    text-align: center; /* Para centrar si hay menos elementos */
+}
+.galeria__imagen-contenedor {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    overflow: hidden;
+    border: 2px solid var(--color-borde-galeria);
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px var(--color-sombra-imagen);
+    transition: transform 0.3s ease;
+    vertical-align: top;
+}
+.galeria__imagen-contenedor:hover {
+    transform: scale(1.03);
+}
+.galeria__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* Ejercicio 06*/
+.alerta {
+    padding: 15px 20px;
+    margin: 15px auto;
+    width: 60%;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border-left: 6px solid;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.alerta--informacion {
+    background-color: var(--color-alerta-info);
+    border-color: var(--color-borde-info);
+    color: var(--color-borde-info);
+}
+.alerta--exito {
+    background-color: var(--color-alerta-exito);
+    border-color: var(--color-borde-exito);
+    color: var(--color-borde-exito);
+}
+.alerta--advertencia {
+    background-color: var(--color-alerta-advertencia);
+    border-color: var(--color-borde-advertencia);
+    color: var(--color-borde-advertencia);
+}
+.alerta--error {
+    background-color: var(--color-alerta-error);
+    border-color: var(--color-borde-error);
+    color: var(--color-borde-error);
+}
+/* Ejercicio 07*/
+/* Ejercicio 08*/

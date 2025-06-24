@@ -36,37 +36,34 @@
             <div class="contenido__ejercicio" id="01ACTIVIDAD">
                 <h2 class="contenido__titulo">Ejercicio 01</h2>
                 <div class="tarjeta">
-                    <img src="Imagenes/los-simpson.jpg" alt="Producto: Los Simpson" class="tarjeta__imagen">
+                    <img src="Imagenes/los-simpson.jpg" alt="Los Simpson" class="tarjeta__imagen">
                     <h3 class="tarjeta__nombre">Los Simpson: La familia más famosa de Springfield</h3>
                     <p class="tarjeta__descripcion">Los Simpson es una serie animada icónica que sigue las aventuras y desventuras de una peculiar familia estadounidense. Con humor satírico, personajes entrañables y críticas sociales, ha entretenido a millones de personas en todo el mundo durante más de tres décadas.</p>
                 </div>
                 <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
-            
-
-
-
-            <div class="main__ejercicios" id="02ACTIVIDAD">
-                <h2 class="main__titulo">Ejercicio 02</h2>
-                <nav class="main__nav">
-                    <a href="">TikTok</a>
-                    <a href="">Youtube</a>
-                    <a href="">Instragram</a>
-                    <a href="">Twitter   </a>
-                    <a href="">Facebook</a> 
+            <div class="contenido__ejercicio" id="02ACTIVIDAD">
+                <h2 class="contenido__titulo">Ejercicio 02</h2>
+                <nav class="menu-navegacion">
+                    <a href="#" class="menu-navegacion__enlace">TikTok</a>
+                    <a href="#" class="menu-navegacion__enlace">YouTube</a>
+                    <a href="#" class="menu-navegacion__enlace">Instagram</a>
+                    <a href="#" class="menu-navegacion__enlace">Twitter</a>
+                    <a href="#" class="menu-navegacion__enlace">Facebook</a>
                 </nav>
-                <a href="#Volver" class="main__volver">Volver</a>
+                <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
-            <div class="main__ejercicios" id="03ACTIVIDAD">
-                <h2 class="main__titulo">Ejercicio 03</h2>
-                <h3>Formulario para conocerte</h3>
-                <form method="get" enctype="multipart/form-data" class="formulario">
-                    <label class="formulario__name">Nombre:</label>
-                    <input type="text" name="nombre" placeholder="Ingrese su nombre" required>
-                    <label class="formulario__name">Número Telefonico:</label>
-                    <input type="number" name="numero" placeholder="Ingrese su Número Telefonico" required>
-                    <label class="formulario__name">Color Favorito:</label>
-                    <select name="color">
+            <div class="contenido__ejercicio" id="03ACTIVIDAD">
+                <h2 class="contenido__titulo">Ejercicio 03 - Formulario de contacto</h2>
+                <form method="get" enctype="multipart/form-data" class="formulario-contacto">
+                    <label for="nombre" class="formulario-contacto__etiqueta">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" class="formulario-contacto__input" required>
+            
+                    <label for="telefono" class="formulario-contacto__etiqueta">Número Telefónico:</label>
+                    <input type="number" id="telefono" name="telefono" placeholder="Ingrese su número" class="formulario-contacto__input" required>
+            
+                    <label for="color" class="formulario-contacto__etiqueta">Color Favorito:</label>
+                    <select id="color" name="color" class="formulario-contacto__select">
                         <option>Rojo</option>
                         <option>Azul</option>
                         <option>Amarillo</option>
@@ -77,38 +74,94 @@
                         <option>Dorado</option>
                         <option>Plateado</option>
                     </select>
-                    <label class="formulario__name">Genero Musicales:</label>
-                    <label for="femenino">Pop</label>
-                    <input type="radio" value="pop" name="genero" id="pop">
-                    <label for="masculino">Electronica</label>
-                    <input type="radio" value="Electro" name="genero" id="electronica">
-                    <label for="masculino">Salsa</label>
-                    <input type="radio" value="Sal" name="genero" id="salsa">
-                    <label for="masculino">Vallenato</label>
-                    <input type="radio" value="Vallen" name="genero" id="vallenato">
-                    <label for="femenino">Hip Hop</label>
-                    <input type="radio" value="Hip" name="genero" id="hip hop">
-                    <label for="masculino">Rock</label>
-                    <input type="radio" value="Roc" name="genero" id="rock">
-                    <label for="masculino">Jazz</label>
-                    <input type="radio" value="Jaz" name="genero" id="jazz">
-                    <label for="masculino">Clasica</label>
-                    <input type="radio" value="Clas" name="genero" id="clasica">
+            
+                    <fieldset class="formulario-contacto__grupo">
+                        <legend class="formulario-contacto__leyenda">Géneros musicales favoritos:</legend>
+            
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Pop" name="genero" class="formulario-contacto__radio"> Pop
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Electrónica" name="genero" class="formulario-contacto__radio"> Electrónica
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Salsa" name="genero" class="formulario-contacto__radio"> Salsa
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Vallenato" name="genero" class="formulario-contacto__radio"> Vallenato
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Hip Hop" name="genero" class="formulario-contacto__radio"> Hip Hop
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Rock" name="genero" class="formulario-contacto__radio"> Rock
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Jazz" name="genero" class="formulario-contacto__radio"> Jazz
+                        </label>
+                        <label class="formulario-contacto__opcion">
+                            <input type="radio" value="Clásica" name="genero" class="formulario-contacto__radio"> Clásica
+                        </label>
+                    </fieldset>
                 </form>
-                <a href="#Volver" class="main__volver">Volver</a>
+                <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
-            <div class="main__ejercicios" id="04ACTIVIDAD">
-                <h2 class="main__titulo">Ejercicio 04</h2>
-                <a href="#Volver" class="main__volver">Volver</a>
+            <div class="contenido__ejercicio" id="04ACTIVIDAD">
+                <h2 class="contenido__titulo">Ejercicio 04</h2>
+                <section class="lista-tareas">
+                    <h3 class="lista-tareas__titulo">Mis tareas del día</h3>
+                    <ul class="lista-tareas__items">
+                        <li class="lista-tareas__item">Terminar proyecto de programación</li>
+                        <li class="lista-tareas__item">Ir al supermercado</li>
+                        <li class="lista-tareas__item">Estudiar para el examen</li>
+                        <li class="lista-tareas__item">Hacer ejercicio</li>
+                        <li class="lista-tareas__item">Responder correos</li>
+                    </ul>
+                </section>
+                <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
-            <div class="main__ejercicios" id="05ACTIVIDAD">
-                <h2 class="main__titulo">Ejercicio 05</h2>
-                <a href="#Volver" class="main__volver">Volver</a>
+            <div class="contenido__ejercicio" id="05ACTIVIDAD">
+                <h2 class="contenido__titulo">Ejercicio 05 - </h2>
+                <section class="galeria">
+                    <div class="galeria__imagen-contenedor">
+                        <img src="Imagenes/harry-potter.jpg" alt="Imagen 1" class="galeria__imagen">
+                    </div>
+                    <div class="galeria__imagen-contenedor">
+                        <img src="Imagenes/houses-hogwarts-personajes.jpg" alt="Imagen 2" class="galeria__imagen">
+                    </div>
+                    <div class="galeria__imagen-contenedor">
+                        <img src="Imagenes/Casa-de-Hogwarts.jpg" alt="Imagen 3" class="galeria__imagen">
+                    </div>
+                    <div class="galeria__imagen-contenedor">
+                        <img src="Imagenes/potter.jpg" alt="Imagen 4" class="galeria__imagen">
+                    </div>
+                </section>
+                <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
-            <div class="main__ejercicios" id="06ACTIVIDAD">
-                <h2 class="main__titulo">Ejercicio 06</h2>
-                <a href="#Volver" class="main__volver">Volver</a>
+            <div class="contenido__ejercicio" id="06ACTIVIDAD">
+                <h2 class="contenido__titulo">Ejercicio 06 - Alerta o notificación</h2>
+                
+                <div class="alerta alerta--informacion">
+                    ℹ️ Esta es una notificación informativa.
+                </div>
+            
+                <div class="alerta alerta--exito">
+                    ✅ ¡Operación completada con éxito!
+                </div>
+            
+                <div class="alerta alerta--advertencia">
+                    ⚠️ Atención: Algunos campos están incompletos.
+                </div>
+            
+                <div class="alerta alerta--error">
+                    ❌ Error: No se pudo enviar el formulario.
+                </div>
+            
+                <a href="#Volver" class="contenido__volver">Volver</a>
             </div>
+            
+
+
             <div class="main__ejercicios" id="07ACTIVIDAD">
                 <h2 class="main__titulo">Ejercicio 07</h2>
                 <a href="#Volver" class="main__volver">Volver</a>
