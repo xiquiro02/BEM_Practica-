@@ -1,0 +1,85 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --color-negro: #000;
+    --color-blanco: #fff;
+    --color-azul: blue;
+    --color-titulo-fondo: #ff7355;
+    --color-fondo-navegacion: #f0f0f0;
+}
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.header__titulo{
+    background-color: var(--color-titulo-fondo);
+    color: var(--color-blanco);
+    font-size: 20px;
+    padding: 10px 20px;
+    text-align: center;
+}
+.header__contenedor{
+    margin: 20px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.header__imagen{
+    border: 2px solid var(--color-negro);
+    border-radius: 3px 6px 3px 6px;
+    width: 500px;
+    height: 350px;
+}
+.header__navegacion{
+    background-color: var(--color-fondo-navegacion);
+    padding: 30px;
+    text-align: center;
+    font-size: 18px;
+    margin: 10px;
+    width: 100%;
+}
+.header__navegacion a{
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: var(--color-link-navegacion);
+}
+.main{
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: inline-block;
+    text-align: center;
+}
+.main__ejercicios{
+    background-color: #ebbfb5;
+    padding: 20px;
+    font-size: 18px;
+    border: solid 5px var(--color-negro);
+    width: 80%;
+    height: 700px;
+}
+.main__titulo{
+    padding: 20px ;
+}
+.main__tarjeta{
+    border-radius: 15px 15px 15px 15px;
+    margin: 0 auto;
+    background-color: var(--color-blanco);
+    width: 60%;
+    height: 70%;
+}
+.main__imagen{
+    border: solid 2px var(--color-azul);
+    width: 50%;
+    height: 50%;
+    margin-top: 15px;
+}
+.main__volver{
+    margin-top: 50px;
+}
